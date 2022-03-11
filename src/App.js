@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import axios from 'axios';
+import React from 'react';
+import Homepage from './pages/Homepage.jsx';
+const url = 'https://api.the-odds-api.com';
+const allSports = '/v4/sports/?apiKey=';
+const apiKey = '57a12a0f264c5daba3eec2187f4c0248';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+
+  state = {
+    odds: []
+  }
+
+  getAllSports = () => {
+   axios.get(url + allSports + apiKey)
+      .then(response => {
+        console.log(response);
+      });
+  }
+
+  getLiveOddsBasketball = () => {
+    axios.get(url + '/v4/sports/basketball_nba/odds/?apiKey='+ apiKey +'&regions=us&markets=spreads')
+      .then(response => {
+        console.log(response.data);
+        this.setState({
+          odds: response.data
+        })
+      })
+  }
+
+  componentDidMount() {
+    this.getLiveOddsBasketball();
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Homepage odds={this.state.odds}/>
+      </div>
+    );
+  }
 }
 
-export default App;
