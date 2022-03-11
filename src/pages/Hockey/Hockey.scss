@@ -1,0 +1,25 @@
+.sports-container {
+
+    background-image: url("../../assets/images/hockey-image.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__sport {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
+
+.sports-card {
+    list-style-type: none;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: lightgray;
+    opacity: .8;
+    margin: 30px;
+    padding: 10px;
+    width: 224px;
+    height: 280px;
+}

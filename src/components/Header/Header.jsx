@@ -9,7 +9,7 @@ export default function Header() {
                 <ul>
                     <li><Link to="/Basketball"> Basketball</Link></li>
                     <li><Link to="/Hockey"> Hockey</Link></li>
-                    <li><Link to="/Soccer"> Soccer</Link></li>
+                    {/* <li><Link to="/Mma"> MMA</Link></li> */}
                 </ul>
             </nav>
         </header>
