@@ -1,0 +1,1 @@
+import './Hockey.scss';

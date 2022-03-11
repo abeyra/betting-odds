@@ -1,0 +1,11 @@
+.sports-container {
+    &__sport {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.sports-card {
+    list-style-type: none;
+    padding: 30px;
+}

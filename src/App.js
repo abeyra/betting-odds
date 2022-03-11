@@ -3,7 +3,7 @@ import axios from 'axios';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import React from 'react';
 import Header from './components/Header/Header.jsx';
-import Basketball from './pages/Basketball.jsx';
+import Basketball from './pages/Basketball/Basketball.jsx';
 const url = 'https://api.the-odds-api.com';
 const allSports = '/v4/sports/?apiKey=';
 const apiKey = '57a12a0f264c5daba3eec2187f4c0248';
