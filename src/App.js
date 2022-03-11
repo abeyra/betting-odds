@@ -1,7 +1,9 @@
 import './App.scss';
 import axios from 'axios';
+import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import React from 'react';
-import Homepage from './pages/Homepage.jsx';
+import Header from './components/Header/Header.jsx';
+import Basketball from './pages/Basketball.jsx';
 const url = 'https://api.the-odds-api.com';
 const allSports = '/v4/sports/?apiKey=';
 const apiKey = '57a12a0f264c5daba3eec2187f4c0248';
@@ -9,7 +11,7 @@ const apiKey = '57a12a0f264c5daba3eec2187f4c0248';
 export default class App extends React.Component {
 
   state = {
-    odds: []
+    basketballOdds: []
   }
 
   getAllSports = () => {
@@ -24,7 +26,7 @@ export default class App extends React.Component {
       .then(response => {
         console.log(response.data);
         this.setState({
-          odds: response.data
+          basketballOdds: response.data
         })
       })
   }
@@ -35,9 +37,12 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <Homepage odds={this.state.odds}/>
-      </div>
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Basketball basketballOdds={this.state.basketballOdds}/>
+        </Switch>
+      </BrowserRouter>
     );
   }
 }

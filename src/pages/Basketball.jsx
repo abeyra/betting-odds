@@ -1,15 +1,17 @@
-import './Homepage.scss';
+import './Basketball.scss';
 
-export default function Homepage({odds}) {
+export default function Basketball({basketballOdds}) {
+
     return (
-        <>
-            <section>
+            <section className="">
                 <ul>
-                    {odds.map((odd) => {
+                    {basketballOdds
+                    .map((odd) => {
+                        let filteredBookie = odd.bookmakers.filter(bookie => bookie.key === 'draftkings')
+                        console.log(filteredBookie);
                         return (
                             <>
                             
-
                             <li key={odd.id}>
                                 <p>{odd.commence_time}</p>
                                 <div>
@@ -19,12 +21,12 @@ export default function Homepage({odds}) {
                                     </div>
                                     <div>
                                         <div>
-                                            <p>{odd.bookmakers[1].markets[0].outcomes[0].point}</p>
-                                            <p>{odd.bookmakers[1].markets[0].outcomes[0].price}</p>
+                                            <p>{filteredBookie[0].markets[0].outcomes[0].point}</p>
+                                            <p>{filteredBookie[0].markets[0].outcomes[0].price}</p>
                                         </div>
                                         <div>
-                                            <p>{odd.bookmakers[1].markets[0].outcomes[1].point}</p>
-                                            <p>{odd.bookmakers[1].markets[0].outcomes[1].price}</p>
+                                            <p>{filteredBookie[0].markets[0].outcomes[1].point}</p>
+                                            <p>{filteredBookie[0].markets[0].outcomes[1].price}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -34,6 +36,5 @@ export default function Homepage({odds}) {
                     })}
                 </ul>
             </section>
-        </>
     )
 }
