@@ -1,5 +1,4 @@
 import './Hockey.scss';
-const cors = require('cors');
 
 export default function Hockey({ hockeyOdds }) {
   return (

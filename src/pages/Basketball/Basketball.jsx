@@ -1,5 +1,4 @@
 import "./Basketball.scss";
-const cors = require('cors');
 
 export default function Basketball({ basketballOdds }) {
   return (

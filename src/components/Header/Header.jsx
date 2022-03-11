@@ -7,9 +7,8 @@ export default function Header() {
             <nav className="menu">
                 <h1>Odd Kingz</h1>
                 <ul>
-                    <li><Link to="/Basketball"> Basketball</Link></li>
+                    <li><Link to="/"> Basketball</Link></li>
                     <li><Link to="/Hockey"> Hockey</Link></li>
-                    {/* <li><Link to="/Mma"> MMA</Link></li> */}
                 </ul>
             </nav>
         </header>
